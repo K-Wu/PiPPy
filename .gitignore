@@ -8,3 +8,5 @@ dist
 **/*.json
 **/*.out
 **/.DS_STORE
+*.egg-info
+.vscode/
