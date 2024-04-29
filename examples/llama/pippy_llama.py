@@ -7,9 +7,9 @@ from pippy.PipelineSchedule import ScheduleGPipe
 
 # Grab the model
 llama = AutoModelForCausalLM.from_pretrained(
-    "meta-llama/Llama-2-7b-chat-hf", low_cpu_mem_usage=True
+    "meta-llama/Llama-2-7b-chat-hf", low_cpu_mem_usage=True, token = os.environ["HF_ACCESS_TOKEN"]
 )
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf")
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b-chat-hf", token = os.environ["HF_ACCESS_TOKEN"])
 
 prompts = (
     "How do you", "I like to", "Can I help", "You need to",

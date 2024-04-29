@@ -1138,11 +1138,12 @@ class Pipe(QualnameMapMixin, torch.nn.Module):
         example_kwargs: Optional[Dict[str, Any]] = None,
     ) -> ExportedProgram:
         logger.info("Tracing model ...")
-        ep = torch.export.export(
-            mod,
-            example_args,
-            example_kwargs,
-        )
+        with torch.no_grad():
+            ep = torch.export.export(
+                mod,
+                example_args,
+                example_kwargs,
+            )
         return ep
 
     @staticmethod
